@@ -21,7 +21,10 @@ const ChatForm = ({ generateChatResponse, chatHistory, setChatHistory }) => {
         ...history,
         { role: 'model', text: '생각중...' },
       ]);
-      generateChatResponse([{ role: 'user', text: userMessage }]);
+      generateChatResponse([
+        ...chatHistory,
+        { role: 'user', text: userMessage },
+      ]);
     }, 500);
   };
   return (
